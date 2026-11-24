@@ -22,7 +22,6 @@ categorias = ["bosque", "desierto"]
 reporte = []
 imagenes_procesadas = 0
 imagenes_aprobadas = 0
-imagenes_muestra = []
 
 print(f"{AUTOR.lower()} nc {NC}")
 print(f"🚀 Iniciando preparación de imágenes ({AUTOR})...\n")
@@ -38,9 +37,7 @@ for categoria in categorias:
         print(f"⚠️ La carpeta {ruta_origen} no existe. Saltando...\n")
         continue
         
-    # Ordenar archivos alfabéticamente para procesar en orden (1 al 5)
     for nombre_archivo in sorted(os.listdir(ruta_origen)):
-        # Incluimos .webp y .jpeg para convertirlas todas a .jpg común
         if not nombre_archivo.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.webp')):
             continue
             
@@ -65,7 +62,7 @@ for categoria in categorias:
         imagen_redimensionada = cv2.resize(imagen, (ANCHO_DESTINO, ALTO_DESTINO), interpolation=cv2.INTER_AREA)
         print(f"   📐 Dimensiones nuevas: {ANCHO_DESTINO} x {ALTO_DESTINO}")
         
-        # Convertir y guardar todas en formato común (.jpg)
+        # Convertir y guardar en formato común (.jpg)
         nombre_jpg_final = f"{nombre_sin_ext}.jpg"
         ruta_jpg = os.path.join(ruta_destino, nombre_jpg_final)
         cv2.imwrite(ruta_jpg, imagen_redimensionada)
@@ -94,9 +91,6 @@ for categoria in categorias:
             estado = "REVISAR"
             print(f"   ⚠️ Evaluación: REVISAR\n")
             
-        # Guardar imagen preparada para la vista previa en cuadrícula
-        imagenes_muestra.append(imagen_redimensionada)
-        
         # 7. Guardar datos en el reporte
         reporte.append([
             AUTOR, categoria, nombre_archivo, formato_orig, "JPG", "OK", ancho_orig, alto_orig,
@@ -123,13 +117,3 @@ print(f"Imágenes aprobadas:  {imagenes_aprobadas}")
 print(f"Imágenes a revisar:  {imagenes_procesadas - imagenes_aprobadas}")
 print(f"\n📁 Reporte guardado en: {ruta_reporte}")
 print("✅ PRÁCTICA TERMINADA EXITOSAMENTE")
-
-# 10. Abrir ventana con el mosaico de las 10 imágenes preparadas (224x224)
-if len(imagenes_muestra) == 10:
-    print("\n🖼️ Mostrando mosaico con las 10 imágenes preparadas (presiona cualquier tecla para cerrar)...")
-    fila_bosque = np.hstack(imagenes_muestra[:5])     # Las 5 de bosque arriba
-    fila_desierto = np.hstack(imagenes_muestra[5:10])  # Las 5 de desierto abajo
-    mosaico = np.vstack([fila_bosque, fila_desierto])
-    cv2.imshow(f"Dataset Preparado 224x224 - {AUTOR} ({NC})", mosaico)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
