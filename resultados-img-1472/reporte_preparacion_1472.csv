@@ -1,0 +1,11 @@
+Autor,Categoría,Archivo original,Formato orig.,Formato final,Lectura,Ancho original,Alto original,Ancho preparado,Alto preparado,Valor mínimo norm.,Valor máximo norm.,Evaluación
+José Solís,bosque,bosque.jpg,JPG,JPG,OK,1600,900,224,224,0.024,0.992,APROBADA
+José Solís,bosque,bosque2.jpg,JPG,JPG,OK,1810,1700,224,224,0.0,1.0,APROBADA
+José Solís,bosque,bosque3.jpg,JPG,JPG,OK,2560,1707,224,224,0.008,0.996,APROBADA
+José Solís,bosque,bosque4.jpg,JPG,JPG,OK,800,416,224,224,0.016,0.976,APROBADA
+José Solís,bosque,bosque5.jpg,JPG,JPG,OK,1900,1265,224,224,0.012,0.894,APROBADA
+José Solís,desierto,desierto.jpg,JPG,JPG,OK,1280,720,224,224,0.0,1.0,APROBADA
+José Solís,desierto,desierto2.jpeg,JPEG,JPG,OK,727,422,224,224,0.043,1.0,APROBADA
+José Solís,desierto,desierto3.webp,WEBP,JPG,OK,1600,900,224,224,0.0,0.996,APROBADA
+José Solís,desierto,desierto4.webp,WEBP,JPG,OK,2560,1440,224,224,0.0,1.0,APROBADA
+José Solís,desierto,desierto5.webp,WEBP,JPG,OK,1600,1200,224,224,0.012,1.0,APROBADA
